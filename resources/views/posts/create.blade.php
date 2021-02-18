@@ -7,11 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach($posts as $post)
-        <span>{{$post->id}}</span>
-        <h2>{{$post->title}}</h2>
-        <p>{{$post->body}}</p>
-    @endforeach
-    <a href="posts/create">link create</a>
+    <div>create</div>
 </body>
 </html>
