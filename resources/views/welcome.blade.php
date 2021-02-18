@@ -10,6 +10,6 @@ Cancellate la tabella posts dal database ed utilizzate il comando php artisan ma
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="posts">post del blog</a>
 </body>
 </html>

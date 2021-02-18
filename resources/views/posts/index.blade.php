@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    index
+    @foreach($posts as $post)
+        <span>{{$post->id}}</span>
+        <h2>{{$post->title}}</h2>
+        <p>{{$post->body}}</p>
+    @endforeach
 </body>
 </html>
