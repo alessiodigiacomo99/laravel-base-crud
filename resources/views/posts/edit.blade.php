@@ -7,20 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('posts.store')}}" method="post">
+    <form action="{{route('posts.update',['post' => $post->id] )}}" method="post">
         @csrf
-        @method('POST')
+        @method('PUT')
         <div>
             <label for="title">titolo</label>
-            <input type="text" name="title" id="">
+            <input type="text" name="title" id="" value="{{$post->title}}">
         </div>
 
         <div>
             <label for="body">Body</label>
-            <textarea name="body" id="" cols="30" rows="10"></textarea>
+            <textarea name="body" id="" cols="30" rows="10">{{$post->body}}</textarea>
         </div>
 
-        <button type="submit">Add Post</button>
+        <button type="submit">Edit Post</button>
     </form>
 </body>
 </html>

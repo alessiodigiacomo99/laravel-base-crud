@@ -37,7 +37,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $newPost = new Post;
+        $newPost->title = $request->title;
+        $newPost->body = $request->body;
+        $newPost->save();
         
+        return redirect()->route('posts.index', $newPost);
     }
 
     /**
@@ -46,9 +52,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -57,9 +64,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -69,9 +76,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+        $post->update($data);
+        
+
+        return redirect()->route('posts.index', $post);
     }
 
     /**
@@ -80,8 +91,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }

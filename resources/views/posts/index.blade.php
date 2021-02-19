@@ -7,11 +7,23 @@
     <title>Document</title>
 </head>
 <body>
+
     @foreach($posts as $post)
-        <span>{{$post->id}}</span>
-        <h2>{{$post->title}}</h2>
-        <p>{{$post->body}}</p>
+        <div>
+            <h2>{{$post->title}}</h2>
+            <p>{{$post->body}}</p>
+            <a href="{{route('posts.show', $post->id)}}">vedi</a>
+            <a href="{{route('posts.edit', $post->id)}}">edita</a>
+            <form action="{{route('posts.destroy', ['post' => $post->id] )}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
+        </div>
     @endforeach
-    <a href="{{ route('posts.create') }}">link create</a>
+    
+    <button>
+        <a href="{{ route('posts.create') }}">crea nuovi post</a>
+    </button>
 </body>
 </html>
