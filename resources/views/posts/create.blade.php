@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div>create</div>
+    <form action="{{route('posts.store')}}" method="get">
+        @csrf
+        <div>
+            <label for="title">titolo</label>
+            <input type="text">
+        </div>
+
+        <div>
+            <label for="body"></label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        <button type="submit">submit</button>
+    </form>
 </body>
 </html>

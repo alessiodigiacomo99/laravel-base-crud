@@ -12,6 +12,6 @@
         <h2>{{$post->title}}</h2>
         <p>{{$post->body}}</p>
     @endforeach
-    <a href="posts/create">link create</a>
+    <a href="{{ route('posts.create') }}">link create</a>
 </body>
 </html>
