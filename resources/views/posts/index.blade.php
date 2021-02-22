@@ -12,6 +12,8 @@
         <div>
             <h2>{{$post->title}}</h2>
             <p>{{$post->body}}</p>
+            <div>created at: {{$post->created_at}}</div>
+            <div>updated at: {{$post->updated_at}}</div>
             <a href="{{route('posts.show', $post->id)}}">vedi</a>
             <a href="{{route('posts.edit', $post->id)}}">edita</a>
             <form action="{{route('posts.destroy', ['post' => $post->id] )}}" method="post">
